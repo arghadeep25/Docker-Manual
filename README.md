@@ -2,6 +2,18 @@
 
 # Docker Image
 
+- Images are read-only templates containing instructions for creating a container. A Docker image creates containers to run on the Docker platform.
+
+- An image is composed of multiple stacked layers. Images contain the code or binary, runtimes, dependencies, and other filesystem objects to run an application. The image relies on the host operating system (OS) kernel.
+
+- Docker Images are build using a Dockerfile, a text document containing all the commands to create a Docker image. You can also pull images from a central repository called a registry, or from repositories.
+
+- When a Docker user runs an image, it becomes one or multiple container instances. 
+
+- Docker images are immutable, so you cannot change them once they are created. If you need to change something, create another container with your changes, then save those as another image. Or, just run your new container using an existing image as a base and change that one.
+
+- Images themselves do not run, but you can create and run containers from a Docker image.
+
 
 # Docker Container 
 
