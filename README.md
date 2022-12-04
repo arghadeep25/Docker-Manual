@@ -1,8 +1,8 @@
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Docker_%28container_engine%29_logo.svg/1280px-Docker_%28container_engine%29_logo.svg.png">]()
 
 
-# Build an Image
-To build an image, <em>**Dockerfile** </em> is required. 
+## Build an Image
+To build an image, <em>**Dockerfile** </em> is required. The best practice is to create a <em>**docker** </em> folder and place the <em>**Dockerfile** </em> inside it.
 
 
 ```
@@ -14,7 +14,7 @@ Example
 docker build -t ros_bare_bones .
 ```
 
-# Run an Image
+## Run an Image
 
 ```
 docker run <docker_image_name>
@@ -26,7 +26,7 @@ To run an image efficiently, we need to pass the flag `-rm` which will clean the
 docker run -rm <docker_image_name>
 ```
 
-# List of Docker Images
+## List of Docker Images
 
 To find the number of docker images locally
 
@@ -34,13 +34,13 @@ To find the number of docker images locally
 docker images ls -a
 ```
 
-# Delete a Docker Image
+## Delete a Docker Image
 
 ```
 docker rm 
 ```
 
-# Delete All Docker Images 
+## Delete All Docker Images 
 
 ```
 sudo docker rmi -f $(docker images -aq)
