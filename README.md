@@ -17,9 +17,16 @@
 
 # Docker Container 
 
+- A container is an isolated place where an application runs without affecting the rest of the system and without the system impacting the application. Because they are isolated, containers are well-suited for securely running software like databases or web applications that need access to sensitive resources without giving access to every user on the system.
+
+- Since the container runs natively on Linux and shares the host machine’s kernel, it is lightweight, not using more memory than other executables. If you stop a container, it will not automatically restart unless you configure it that way. However, containers can be much more efficient than virtual machines because they don’t need the overhead of an entire operating system. They share a single kernel with other containers and boot in seconds instead of minutes.
+
+- Container can be used for shipping purposes by integrating all the required components for an application to run. This avoids the friction between other developers. 
+
 
 # Docker Image vs Docker Container 
 
+- A Docker image executes code in a Docker container. You add a writable layer of core functionalities on a Docker image to create a running container.
 
 # Docker Commands
 
