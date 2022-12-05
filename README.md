@@ -26,7 +26,21 @@
 
 # Docker Image vs Docker Container 
 
-- A Docker image executes code in a Docker container. You add a writable layer of core functionalities on a Docker image to create a running container.
+
+| Docker Image | Docker Container |
+|     :---:        |     :---:      |
+|Blueprint of the Container.| Instance of the Image.|
+| Image is a logical entity.| Container is a real world entity.|
+| Images are immutable.| Containers changes only if old image is <br/>deleted and new is used to build the container.|
+ Images does not require computing resource to work.| Containers requires computing resources to run <br/> as they run as Docker Virtual Machine.|
+|To make a docker image, you have to write script in Dockerfile. |To make container from image, you have to <br/>run “docker run IMAGE” command. |
+|Docker Images are used to package up <br/> applications and pre-configured server environments. |Containers use server information and file system <br/> provided by image in order to operate. |
+|Images can be shared on Docker Hub.|It makes no sense in sharing a running entity, <br/>always docker images are shared.|
+|There is no such running state of Docker Image.|Containers uses RAM when created and in running state.|
+
+# Docker Flow
+
+[<img src="https://miro.medium.com/max/600/1*joAfS_1sBhCOJzJuaAzzeg.png" width="400">]()
 
 # Docker Commands
 
@@ -57,7 +71,7 @@ docker run -rm <docker_image_name>
 ```
 
 
-## List of Docker Images Locally
+## Locate List of Docker Images Locally
 
 To find the number of docker images locally
 
