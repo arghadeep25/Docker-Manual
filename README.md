@@ -95,7 +95,8 @@ docker container ps -a
 ## Delete a Docker Container
 
 Deleting a docker container forcefully
-```
+
+```html
 docker rm -f <container_id>
 ```
 
@@ -107,7 +108,8 @@ CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 
 ## Delete a Docker Image
 Deleting a Docker Image forcefully
-```
+
+```html
 docker rmi -f <Image_name>
 ```
 
