@@ -49,6 +49,20 @@ DockerFile ---> (Build) ---> Image ---> (Run) ---> Container
 
 **Container** : the virtual operating system itself. You can ssh into it and run any commands you wish, as if it's a real environment. You can run 1000+ containers from the same Image.
 
+### End-to-End Workflow
+
+```
+--------------  docker build   ----------------  docker run -dt   -------------  docker exec -it   --------
+| Dockerfile | --------------> |    Image     | --------------->  | Container | -----------------> | Bash |
+--------------                 ----------------                   -------------                    --------
+                                 ^
+                                 | docker pull
+                                 |
+                               ----------------
+                               |   Registry   |
+                               ----------------
+```
+
 [<img src="https://miro.medium.com/max/600/1*joAfS_1sBhCOJzJuaAzzeg.png" width="400">]()
 
 # Docker Commands
