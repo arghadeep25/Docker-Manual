@@ -44,6 +44,11 @@
 
 # Docker Commands
 
+## Installation
+
+```
+sudo apt update && install -y docker.io
+```
 
 ## Build an Image
 To build an image, <em>**Dockerfile** </em> is required. The best practice is to create a <em>**docker** </em> folder and place the <em>**Dockerfile** </em> inside it.
@@ -79,13 +84,37 @@ To find the number of docker images locally
 docker images ls -a
 ```
 
+## Locate List of Docker Containers Locally
+To find the number of docker images locally
+
+```html
+docker container ps -a
+```
+
+
+## Delete a Docker Container
+
+Deleting a docker container forcefully
+```
+docker rm -f <container_id>
+```
+
+If the Docker container ID is not know, use `docker container ps -a`. This will output like,
+```
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+```
+
 
 ## Delete a Docker Image
-
+Deleting a Docker Image forcefully
 ```
-docker rm 
+docker rmi -f <Image_name>
 ```
 
+If the Docker image ID is not know, use `docker image ls -a`. This will output like,
+```
+REPOSITORY     TAG       IMAGE ID       CREATED          SIZE
+```
 
 ## Delete All Docker Images 
 
