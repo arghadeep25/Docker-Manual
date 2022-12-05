@@ -40,6 +40,15 @@
 
 # Docker Flow
 
+```
+DockerFile ---> (Build) ---> Image ---> (Run) ---> Container
+```
+**Dockerfile** : contains a set of Docker instructions that provisions your operating system the way you like, and installs/configure all your software.
+
+**Image** : compiled Dockerfile. Saves you time from rebuilding the Dockerfile every time you need to run a container. And it's a way to hide your provision code.
+
+**Container** : the virtual operating system itself. You can ssh into it and run any commands you wish, as if it's a real environment. You can run 1000+ containers from the same Image.
+
 [<img src="https://miro.medium.com/max/600/1*joAfS_1sBhCOJzJuaAzzeg.png" width="400">]()
 
 # Docker Commands
@@ -110,7 +119,7 @@ CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 Deleting a Docker Image forcefully
 
 ```html
-docker rmi -f <Image_name>
+docker rmi -f <docker_image_name>
 ```
 
 If the Docker image ID is not know, use `docker image ls -a`. This will output like,
