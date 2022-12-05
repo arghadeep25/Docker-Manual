@@ -69,9 +69,18 @@ DockerFile ---> (Build) ---> Image ---> (Run) ---> Container
 
 ## Installation
 
+**(Ubuntu Only)** To install Docker, you can go to the official website of [Docker](https://docs.docker.com/desktop/install/ubuntu/) and follow the instructions.
+
+**Alternatively**
 ```
 sudo apt update && install -y docker.io
 ```
+
+Using Snap
+```
+sudo snap install docker
+```
+
 
 ## Build an Image
 To build an image, <em>**Dockerfile** </em> is required. The best practice is to create a <em>**docker** </em> folder and place the <em>**Dockerfile** </em> inside it.
