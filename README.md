@@ -132,7 +132,7 @@ Deleting a docker container forcefully
 docker rm -f <container_id>
 ```
 
-If the Docker container ID is not know, use `docker container ps -a`. This will output like,
+If the Docker container ID is not known, use `docker container ps -a`. This will output like,
 ```
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 ```
@@ -145,7 +145,7 @@ Deleting a Docker Image forcefully
 docker rmi -f <docker_image_name>
 ```
 
-If the Docker image ID is not know, use `docker image ls -a`. This will output like,
+If the Docker image ID is not known, use `docker image ls -a`. This will output like,
 ```
 REPOSITORY     TAG       IMAGE ID       CREATED          SIZE
 ```
@@ -153,5 +153,29 @@ REPOSITORY     TAG       IMAGE ID       CREATED          SIZE
 ## Delete All Docker Images 
 
 ```html
-sudo docker rmi -f $(docker images -aq)
+docker rmi -f $(docker images -aq)
+```
+
+
+# FAQ
+
+## Got Permission Denied Issue
+If you get this error 
+
+`docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.35/containers/create: dial unix /var/run/docker.sock: connect: permission denied. See 'docker run --help'.`
+
+Run the following command
+
+```
+sudo chmod 666 /var/run/docker.sock
+```
+
+Or you can go through [Permission Issue Stackoverflow](https://stackoverflow.com/questions/48957195/how-to-fix-docker-got-permission-denied-issue)
+
+## Unable to delete <image_tag> (cannot be forced) - image has dependent child images
+
+If you are getting this error, try using this command
+
+```
+docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
 ```
