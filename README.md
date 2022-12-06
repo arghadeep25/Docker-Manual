@@ -172,6 +172,7 @@ sudo chmod 666 /var/run/docker.sock
 
 Or you can go through [Permission Issue Stackoverflow](https://stackoverflow.com/questions/48957195/how-to-fix-docker-got-permission-denied-issue)
 
+
 ### Unable to delete <image_tag> (cannot be forced) - image has dependent child images
 
 If you are getting this error, try using this command
@@ -179,6 +180,7 @@ If you are getting this error, try using this command
 ```
 docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
 ```
+
 
 ### WARNING: Error loading config file
 Changing the ownership and permissions using the following commands can fix the permission issue with the configuration file.
@@ -188,6 +190,7 @@ sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
 sudo chmod g+rwx "/home/$USER/.docker" -R
 ```
 
+
 ### Cannot connect to the Docker daemon
 Start the Docker services
 
@@ -195,6 +198,7 @@ Start the Docker services
 sudo systemctl start docker.service
 sudo systemctl start docker.socket
 ```
+
 
 ### Error response from daemon: conflict
 
