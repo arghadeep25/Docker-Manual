@@ -159,7 +159,7 @@ docker rmi -f $(docker images -aq)
 
 # FAQ
 
-### Permission Denied Issue
+### - Permission Denied Issue
 If you get this error 
 
 `docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.35/containers/create: dial unix /var/run/docker.sock: connect: permission denied. See 'docker run --help'.`
@@ -173,7 +173,8 @@ sudo chmod 666 /var/run/docker.sock
 Or you can go through [Permission Issue Stackoverflow](https://stackoverflow.com/questions/48957195/how-to-fix-docker-got-permission-denied-issue)
 
 
-### Unable to delete <image_tag> (cannot be forced) - image has dependent child images
+
+### - Unable to delete <image_tag> (cannot be forced) - image has dependent child images
 
 If you are getting this error, try using this command
 
@@ -182,7 +183,7 @@ docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
 ```
 
 
-### WARNING: Error loading config file
+### - WARNING: Error loading config file
 Changing the ownership and permissions using the following commands can fix the permission issue with the configuration file.
 
 ```
@@ -191,7 +192,7 @@ sudo chmod g+rwx "/home/$USER/.docker" -R
 ```
 
 
-### Cannot connect to the Docker daemon
+### - Cannot connect to the Docker daemon
 Start the Docker services
 
 ```
@@ -200,7 +201,7 @@ sudo systemctl start docker.socket
 ```
 
 
-### Error response from daemon: conflict
+### - Error response from daemon: conflict
 
 Check the containers 
 ```
