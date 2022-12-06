@@ -159,7 +159,7 @@ docker rmi -f $(docker images -aq)
 
 # FAQ
 
-## Got Permission Denied Issue
+## Permission Denied Issue
 If you get this error 
 
 `docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.35/containers/create: dial unix /var/run/docker.sock: connect: permission denied. See 'docker run --help'.`
@@ -178,4 +178,36 @@ If you are getting this error, try using this command
 
 ```
 docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
+```
+
+## WARNING: Error loading config file
+Changing the ownership and permissions using the following commands can fix the permission issue with the configuration file.
+
+```
+sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
+sudo chmod g+rwx "/home/$USER/.docker" -R
+```
+
+## Cannot connect to the Docker daemon
+Start the Docker services
+
+```
+sudo systemctl start docker.service
+sudo systemctl start docker.socket
+```
+
+## Error response from daemon: conflict
+
+Check the containers 
+```
+docker ps -a
+```
+This will return the output like
+```
+CONTAINER ID  IMAGE  COMMAND  CREATED  STATUS  PORTS  NAMES
+```
+Now delete the container forcefully
+
+```html
+docker rm -f <container_name>
 ```
