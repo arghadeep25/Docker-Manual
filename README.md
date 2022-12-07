@@ -122,6 +122,10 @@ To find the number of docker images locally
 ```html
 docker container ps -a
 ```
+or (Only IDs)
+```
+docker ps -aq
+```
 
 
 ## Delete a Docker Container
@@ -135,6 +139,22 @@ docker rm -f <container_id>
 If the Docker container ID is not known, use `docker container ps -a`. This will output like,
 ```
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+```
+
+## Stop All Running Docker Containers
+
+To stop all running Docker containers
+
+```
+docker stop $(docker ps -aq)
+```
+
+## Delete all Docker Containers
+
+To delete all Docker Containers at once
+
+```
+docker rm $(docker ps -aq)
 ```
 
 
