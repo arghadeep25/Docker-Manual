@@ -104,11 +104,28 @@ The above command will create a new image everytime we run. **Inefficient**
 
 To run an image efficiently, we need to pass the flag `-rm` which will clean the image automatically.
 ```html
-docker run -rm <docker_image_name>
+docker run --rm -it --name=<docker_image_name> <docker_image_name>
 ```
 
+## Get Inside Docker Container
+To enter a Docker container, first run the image with a specified name and run the following command
 
-## Locate List of Docker Images Locally
+```html
+docker exec -it <docker_container_name> bash
+```
+
+## Copy from Docker Container to Local
+
+```
+sudo docker cp <docker_container_name>:/file/path/within/container /host/path/target
+```
+Example
+```
+sudo docker cp goofy_roentgen:/out_read.jpg .
+```
+
+## Locate
+### - Locate List of Docker Images Locally
 
 To find the number of docker images locally
 
@@ -116,7 +133,7 @@ To find the number of docker images locally
 docker images ls -a
 ```
 
-## Locate List of Docker Containers Locally
+### - Locate List of Docker Containers Locally
 To find the number of docker images locally
 
 ```html
@@ -127,8 +144,9 @@ or (Only IDs)
 docker ps -aq
 ```
 
+## Delete
 
-## Delete a Docker Container
+### - Delete a Docker Container
 
 Deleting a docker container forcefully
 
@@ -141,15 +159,8 @@ If the Docker container ID is not known, use `docker container ps -a`. This will
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 ```
 
-## Stop All Running Docker Containers
 
-To stop all running Docker containers
-
-```
-docker stop $(docker ps -aq)
-```
-
-## Delete all Docker Containers
+### - Delete all Docker Containers
 
 To delete all Docker Containers at once
 
@@ -157,8 +168,7 @@ To delete all Docker Containers at once
 docker rm $(docker ps -aq)
 ```
 
-
-## Delete a Docker Image
+### - Delete a Docker Image
 Deleting a Docker Image forcefully
 
 ```html
@@ -170,12 +180,20 @@ If the Docker image ID is not known, use `docker image ls -a`. This will output 
 REPOSITORY     TAG       IMAGE ID       CREATED          SIZE
 ```
 
-## Delete All Docker Images 
+### - Delete All Docker Images 
 
 ```html
 docker rmi -f $(docker images -aq)
 ```
 
+
+## Stop All Running Docker Containers
+
+To stop all running Docker containers
+
+```
+docker stop $(docker ps -aq)
+```
 
 # FAQ
 
