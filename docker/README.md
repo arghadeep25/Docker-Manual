@@ -107,11 +107,56 @@ To run an image efficiently, we need to pass the flag `-rm` which will clean the
 docker run --rm -it --name=<docker_image_name> <docker_image_name>
 ```
 
+## Pause and Unpause a Docker Container
+
+```html
+docker pause <docker_container_name>
+```
+
+```html
+docker unpause <docker_container_name>
+```
+
+## Stop a Docker Container
+
+```
+docker stop <docker_container_name>
+```
+
+## Restart a Docker Container
+
+```
+docker restart <docker_container_name>
+```
+
+
 ## Get Inside Docker Container
 To enter a Docker container, first run the image with a specified name and run the following command
 
 ```html
 docker exec -it <docker_container_name> bash
+```
+
+## Get Docker Logs
+
+```html
+docker logs <docker_container_name> --tail=<numer_of_logs> -ft
+```
+
+```html
+docker logs test_container --tail=50 -ft
+```
+
+## Inspect a Docker Container [Low-Level Infos (JSON Format)]
+
+```html
+docker inspect <docker_container_name>
+```
+
+## List of Processes Running in a Docker Container
+
+```html
+docker top <docker_container_name>
 ```
 
 ## Copy from Docker Container to Local
