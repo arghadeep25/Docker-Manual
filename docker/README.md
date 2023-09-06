@@ -240,6 +240,58 @@ To stop all running Docker containers
 docker stop $(docker ps -aq)
 ```
 
+## Change Docker Directory
+
+In case you are facing the issue of root directory is full, it's better to move the default docker directory(`/var/lib/docker`) from root to somewhere else. To do that, we need to follow few steps
+
+#### - Stop Docker
+```
+sudo systemctl stop docker.service docker.socket
+```
+
+#### Create New Directory for Docker
+```
+mkdir /home/arghadeep/docker
+```
+
+#### - Create New Docker Configuration
+```
+sudo touch /etc/docker/daemon.json
+sudo vim /etc/docker/daemon.json
+```
+
+#### - Insert New Path
+```
+{
+  "data-root": "/new/path/docker-data"
+}
+
+Example:
+
+{
+  "data-root": "/home/arghadeep/docker"
+}
+
+```
+
+#### - Add Permission
+```
+sudo chown -R root:docker /new/path/docker-data
+
+Example:
+sudo chown -R root:docker /home/arghadeep/docker/
+```
+
+
+#### - Move Existing Data to New Directory
+```
+sudo rsync -aP /var/lib/docker/ /new/path/docker-data/
+
+Example:
+sudo rsync -aP /var/lib/docker/ /home/arghadeep/docker/
+```
+
+
 # FAQ
 
 ### - Permission Denied Issue
