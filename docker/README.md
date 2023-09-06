@@ -282,7 +282,6 @@ Example:
 sudo chown -R root:docker /home/arghadeep/docker/
 ```
 
-
 #### - Move Existing Data to New Directory
 ```
 sudo rsync -aP /var/lib/docker/ /new/path/docker-data/
