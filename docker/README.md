@@ -27,16 +27,16 @@
 # Docker Image vs Docker Container 
 
 
-| Docker Image | Docker Container |
-|     :---:        |     :---:      |
-|Blueprint of the Container.| Instance of the Image.|
-| Image is a logical entity.| Container is a real world entity.|
-| Images are immutable.| Containers changes only if old image is <br/>deleted and new is used to build the container.|
- Images does not require computing resource to work.| Containers requires computing resources to run <br/> as they run as Docker Virtual Machine.|
-|To make a docker image, you have to write script in Dockerfile. |To make container from image, you have to <br/>run “docker run IMAGE” command. |
-|Docker Images are used to package up <br/> applications and pre-configured server environments. |Containers use server information and file system <br/> provided by image in order to operate. |
-|Images can be shared on Docker Hub.|It makes no sense in sharing a running entity, <br/>always docker images are shared.|
-|There is no such running state of Docker Image.|Containers uses RAM when created and in running state.|
+|                                          Docker Image                                           |                                        Docker Container                                        |
+| :---------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------: |
+|                                   Blueprint of the Container.                                   |                                     Instance of the Image.                                     |
+|                                   Image is a logical entity.                                    |                               Container is a real world entity.                                |
+|                                      Images are immutable.                                      |  Containers changes only if old image is <br/>deleted and new is used to build the container.  |
+|                       Images does not require computing resource to work.                       |  Containers requires computing resources to run <br/> as they run as Docker Virtual Machine.   |
+|                 To make a docker image, you have to write script in Dockerfile.                 |         To make container from image, you have to <br/>run “docker run IMAGE” command.         |
+| Docker Images are used to package up <br/> applications and pre-configured server environments. | Containers use server information and file system <br/> provided by image in order to operate. |
+|                               Images can be shared on Docker Hub.                               |      It makes no sense in sharing a running entity, <br/>always docker images are shared.      |
+|                         There is no such running state of Docker Image.                         |                     Containers uses RAM when created and in running state.                     |
 
 # Docker Flow
 
@@ -94,6 +94,18 @@ Example
 docker build -t ros_bare_bones .
 ```
 
+#### Platform Specific
+
+In case having issue to build an image on different platform for example AMD64 or ARM/v7, include the flag to avoid the error
+```
+docker build --platform <platform_name> -t <image_name> <DOCKER_FILE_PATH>
+```
+
+Example
+
+```
+docker build --platform linux/amd64 -t ros_bare_bones .
+```
 
 ## Run an Image
 
